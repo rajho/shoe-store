@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+
+    <!-- Login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_register">Create one</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="register_intro">No account yet?</string>
+
+    <!-- Welcome -->
+    <string name="welcome_title">Get ready to stomp</string>
+    <string name="welcome_body_marketing">Create the best shoes store in no time</string>
+    <string name="button_instructions">Quick tutorial</string>
+
+    <!-- Instruction -->
+    <string name="instruction_1">Make sure to verify in the shoes list before creating a new one</string>
+    <string name="instruction_2">Click de <b>+</b> button to add a new show to your store</string>
+    <string name="instruction_3">After filling in all the shoe information, make sure to hit the <b>Save</b> button</string>
+    <string name="button_go_store">Lets go to the Store</string>
+    <string name="bullet_image_description">Bullet point</string>
+
+
+</resources>

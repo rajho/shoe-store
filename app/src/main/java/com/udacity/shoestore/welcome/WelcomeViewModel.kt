@@ -1,4 +1,4 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.welcome
 
 import androidx.lifecycle.ViewModel
 

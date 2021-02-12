@@ -25,4 +25,8 @@
     <string name="bullet_image_description">Bullet point</string>
 
 
+    <!-- Shoes list -->
+    <string name="create_shoe_button">Create shoe button</string>
+
+
 </resources>

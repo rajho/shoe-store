@@ -2,6 +2,7 @@
     <string name="app_name">ShoeStore</string>
 
     <!-- Login -->
+    <string name="login_title">Login</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_register">Create one</string>

@@ -1,32 +1,55 @@
 package com.udacity.shoestore.shoeslist
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.ShoesListFragmentBinding
 
 class ShoesListFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ShoesListFragment()
-    }
-
-    private lateinit var viewModel: ShoesListViewModel
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.shoes_list_fragment, container, false)
+    ): View {
+        val binding = DataBindingUtil.inflate<ShoesListFragmentBinding>(
+            inflater,
+            R.layout.shoes_list_fragment,
+            container,
+            false
+        )
+
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ShoesListViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val navController = findNavController()
+        mainViewModel.userEmail.observe(viewLifecycleOwner, Observer { userEmail ->
+            if (userEmail.isEmpty()){
+                navController.popBackStack(R.id.loginFragment, false)
+            }
+        })
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.shoes_list_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(
+            item,
+            requireView().findNavController()
+        ) || super.onOptionsItemSelected(item)
+    }
 }

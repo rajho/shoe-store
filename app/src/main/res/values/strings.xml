@@ -14,11 +14,13 @@
     <string name="register_intro">No account yet?</string>
 
     <!-- Welcome -->
-    <string name="welcome_title">Get ready to stomp</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="welcome_header">Get ready to stomp</string>
     <string name="welcome_body_marketing">Create the best shoes store in no time</string>
     <string name="button_instructions">Quick tutorial</string>
 
     <!-- Instruction -->
+    <string name="instructions_title">Instructions</string>
     <string name="instruction_1">Make sure to verify in the shoes list before creating a new one</string>
     <string name="instruction_2">Click de <b>+</b> button to add a new show to your store</string>
     <string name="instruction_3">After filling in all the shoe information, make sure to hit the <b>Save</b> button</string>
@@ -27,7 +29,9 @@
 
 
     <!-- Shoes list -->
+    <string name="shoes_list_title">Shoes</string>
     <string name="create_shoe_button">Create shoe button</string>
+    <string name="logout_action">Logout</string>
 
 
 </resources>

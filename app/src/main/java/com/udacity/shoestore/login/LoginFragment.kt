@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.LoginFragmentBinding
@@ -30,7 +29,19 @@ class LoginFragment : Fragment() {
             container,
             false
         )
-        val onClickListener = Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
+
+//        val navController = findNavController()
+//        mainViewModel.userEmail.observe(viewLifecycleOwner, Observer { userEmail ->
+//            if (userEmail.isEmpty()){
+//                navController.navigate(R.id.action_shoesListFragment_to_loginFragment)
+//            }
+//        })
+
+
+        val onClickListener = View.OnClickListener { v ->
+            v.findNavController()
+                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        }
 
         binding.signInButton.setOnClickListener(onClickListener)
         binding.signUpButton.setOnClickListener(onClickListener)

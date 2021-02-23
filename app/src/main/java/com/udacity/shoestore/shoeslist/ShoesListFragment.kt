@@ -31,16 +31,6 @@ class ShoesListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val navController = findNavController()
-        mainViewModel.userEmail.observe(viewLifecycleOwner, Observer { userEmail ->
-            if (userEmail.isEmpty()){
-                navController.popBackStack(R.id.loginFragment, false)
-            }
-        })
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.shoes_list_menu, menu)

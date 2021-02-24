@@ -12,6 +12,8 @@ import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoesListFragmentBinding
+import com.udacity.shoestore.login.LoginFragment
+import com.udacity.shoestore.login.LoginFragmentDirections
 
 class ShoesListFragment : Fragment() {
     private val mainViewModel: MainViewModel by activityViewModels()
@@ -27,6 +29,8 @@ class ShoesListFragment : Fragment() {
             false
         )
 
+
+
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -37,9 +41,14 @@ class ShoesListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(
-            item,
-            requireView().findNavController()
-        ) || super.onOptionsItemSelected(item)
+
+        return when (item.itemId) {
+            R.id.loginFragment -> {
+                mainViewModel.logOut()
+                findNavController().navigate(ShoesListFragmentDirections.actionShoesListFragmentToLoginFragment())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

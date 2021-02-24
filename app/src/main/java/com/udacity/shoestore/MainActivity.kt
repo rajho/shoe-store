@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import timber.log.Timber
 
@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
 
-
         val navController = this.findNavController(R.id.nav_host_fragment)
-        // val appBarConfiguration = AppBarConfiguration(navController.graph)
+        // Adding fragment ids as Top Level Destinations so they do not display the up arrow button
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.loginFragment, R.id.welcomeFragment, R.id.shoesListFragment))
 
-        NavigationUI.setupActionBarWithNavController(this, navController)
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -6,16 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     private lateinit var viewModel: LoginViewModel
 
@@ -30,19 +30,23 @@ class LoginFragment : Fragment() {
             false
         )
 
-//        val navController = findNavController()
-//        mainViewModel.userEmail.observe(viewLifecycleOwner, Observer { userEmail ->
-//            if (userEmail.isEmpty()){
-//                navController.navigate(R.id.action_shoesListFragment_to_loginFragment)
-//            }
-//        })
-
-
-        val onClickListener = View.OnClickListener { v ->
-            v.findNavController()
-                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        mainViewModel.isLoggedIn.value?.let {
+            if (it) {
+                findNavController()
+                    .navigate(LoginFragmentDirections.actionLoginFragmentToShoesListFragment())
+            }
         }
 
+        mainViewModel.isLoggedIn.observe(viewLifecycleOwner, { isLoggedIn ->
+            if (isLoggedIn) {
+                findNavController()
+                    .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+            }
+        })
+
+        val onClickListener = View.OnClickListener {
+            mainViewModel.logIn()
+        }
         binding.signInButton.setOnClickListener(onClickListener)
         binding.signUpButton.setOnClickListener(onClickListener)
 

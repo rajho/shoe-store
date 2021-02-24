@@ -17,6 +17,7 @@ class MainViewModel : ViewModel() {
 
     init {
         _isLoggedIn.value = false
+        _shoes.value = mutableListOf()
     }
 
     fun logIn() {
@@ -27,5 +28,8 @@ class MainViewModel : ViewModel() {
         _isLoggedIn.value = false;
     }
 
+    fun saveShoe(shoe: Shoe) {
+        _shoes.value!!.add(shoe)
+    }
 
 }

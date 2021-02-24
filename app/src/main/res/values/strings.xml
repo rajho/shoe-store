@@ -27,11 +27,19 @@
     <string name="button_go_store">Lets go to the Store</string>
     <string name="bullet_image_description">Bullet point</string>
 
-
     <!-- Shoes list -->
     <string name="shoes_list_title">Shoes</string>
     <string name="create_shoe_button">Create shoe button</string>
     <string name="logout_action">Logout</string>
+
+    <!-- Shoe detail -->
+    <string name="shoe_detail_title">Shoe detail</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="shoe_company">Shoe Company</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="shoe_description">Description</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="save_button">Save</string>
 
 
 </resources>

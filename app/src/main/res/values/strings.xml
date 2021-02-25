@@ -35,11 +35,12 @@
     <!-- Shoe detail -->
     <string name="shoe_detail_title">Shoe detail</string>
     <string name="shoe_name">Shoe Name</string>
-    <string name="shoe_company">Shoe Company</string>
+    <string name="shoe_company">Company</string>
     <string name="shoe_size">Shoe Size</string>
     <string name="shoe_description">Description</string>
     <string name="cancel_button">Cancel</string>
     <string name="save_button">Save</string>
+    <string name="shoe_size_hint">0.0</string>
 
 
 </resources>

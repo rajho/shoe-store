@@ -5,8 +5,8 @@
     
     <data>
         <variable
-            name="mainViewModel"
-            type="com.udacity.shoestore.MainViewModel" />
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
         <import type="com.udacity.shoestore.shoedetail.Converter"/>
     </data>
 
@@ -30,90 +30,110 @@
                     android:id="@+id/shoe_name_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
                     android:labelFor="@id/shoe_name_text"
                     android:text="@string/shoe_name"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/shoe_name_text"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toTopOf="@+id/shoe_name_text" />
 
                 <EditText
                     android:id="@+id/shoe_name_text"
                     style="@style/EditTextInForm"
                     android:layout_width="0dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:importantForAutofill="no"
                     android:inputType="textCapSentences"
-                    android:text="@={mainViewModel.shoe.name}"
+                    android:text="@={shoe.name}"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/shoe_name_label" />
+                    app:layout_constraintStart_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/shoe_company_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:labelFor="@id/shoe_company_text"
                     android:text="@string/shoe_company"
-                    app:layout_constraintStart_toStartOf="@+id/shoe_name_text"
-                    app:layout_constraintTop_toBottomOf="@+id/shoe_name_text" />
+                    app:layout_constraintBottom_toBottomOf="@+id/shoe_company_text"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toTopOf="@+id/shoe_company_text" />
 
                 <EditText
                     android:id="@+id/shoe_company_text"
                     style="@style/EditTextInForm"
                     android:layout_width="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:importantForAutofill="no"
                     android:inputType="textCapSentences"
-                    android:text="@={mainViewModel.shoe.company}"
+                    android:text="@={shoe.company}"
                     app:layout_constraintEnd_toEndOf="@+id/shoe_name_text"
-                    app:layout_constraintStart_toStartOf="@+id/shoe_name_text"
-                    app:layout_constraintTop_toBottomOf="@+id/shoe_company_label" />
+                    app:layout_constraintStart_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toBottomOf="@+id/shoe_name_text" />
 
                 <TextView
                     android:id="@+id/shoe_size_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:labelFor="@id/shoe_size_text"
                     android:text="@string/shoe_size"
-                    app:layout_constraintStart_toStartOf="@+id/shoe_company_text"
-                    app:layout_constraintTop_toBottomOf="@+id/shoe_company_text" />
+                    app:layout_constraintBottom_toBottomOf="@+id/shoe_size_text"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toTopOf="@+id/shoe_size_text" />
 
                 <EditText
                     android:id="@+id/shoe_size_text"
                     style="@style/EditTextInForm"
                     android:layout_width="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/shoe_size_hint"
                     android:importantForAutofill="no"
                     android:inputType="numberDecimal"
-                    android:text="@={Converter.doubleToString(mainViewModel.shoe.size)}"
+                    android:text="@={Converter.doubleToString(shoe.size)}"
                     app:layout_constraintEnd_toEndOf="@+id/shoe_company_text"
-                    app:layout_constraintStart_toStartOf="@+id/shoe_company_text"
-                    app:layout_constraintTop_toBottomOf="@+id/shoe_size_label" />
+                    app:layout_constraintStart_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toBottomOf="@+id/shoe_company_text" />
 
                 <TextView
                     android:id="@+id/shoe_description_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:labelFor="@id/shoe_description_text"
                     android:text="@string/shoe_description"
-                    app:layout_constraintStart_toStartOf="@+id/shoe_size_text"
-                    app:layout_constraintTop_toBottomOf="@+id/shoe_size_text" />
+                    app:layout_constraintBottom_toBottomOf="@+id/shoe_description_text"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toTopOf="@+id/shoe_description_text" />
 
                 <EditText
                     android:id="@+id/shoe_description_text"
                     style="@style/EditTextInForm"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:importantForAutofill="no"
-                    android:inputType="textCapSentences"
-                    android:maxLines="3"
-                    android:minLines="3"
-                    android:text="@={mainViewModel.shoe.description}"
-                    app:layout_constraintEnd_toEndOf="@+id/shoe_size_text"
-                    app:layout_constraintStart_toStartOf="@+id/shoe_size_text"
-                    app:layout_constraintTop_toBottomOf="@+id/shoe_description_label" />
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLines="2"
+                    android:minLines="1"
+                    android:text="@={shoe.description}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toBottomOf="@+id/shoe_size_text" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.3" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

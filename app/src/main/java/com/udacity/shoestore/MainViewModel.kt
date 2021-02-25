@@ -16,8 +16,6 @@ class MainViewModel : ViewModel() {
     val shoes: LiveData<MutableList<Shoe>>
         get() = _shoes
 
-    val shoe: Shoe = Shoe()
-
     init {
         _isLoggedIn.value = false
         _shoes.value = mutableListOf()
@@ -31,7 +29,7 @@ class MainViewModel : ViewModel() {
         _isLoggedIn.value = false;
     }
 
-    fun saveShoe() {
+    fun saveShoe(shoe: Shoe) {
         _shoes.value!!.add(shoe)
     }
 

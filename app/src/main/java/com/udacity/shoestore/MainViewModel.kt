@@ -1,5 +1,6 @@
 package com.udacity.shoestore
 
+import androidx.databinding.BaseObservable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,6 +16,8 @@ class MainViewModel : ViewModel() {
     val shoes: LiveData<MutableList<Shoe>>
         get() = _shoes
 
+    val shoe: Shoe = Shoe()
+
     init {
         _isLoggedIn.value = false
         _shoes.value = mutableListOf()
@@ -28,7 +31,7 @@ class MainViewModel : ViewModel() {
         _isLoggedIn.value = false;
     }
 
-    fun saveShoe(shoe: Shoe) {
+    fun saveShoe() {
         _shoes.value!!.add(shoe)
     }
 

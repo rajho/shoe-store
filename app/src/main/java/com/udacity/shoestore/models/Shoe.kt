@@ -10,4 +10,6 @@ data class Shoe(
     var company: String,
     var description: String,
     val images: List<String> = mutableListOf()
-) : Parcelable
+) : Parcelable {
+    constructor() : this("", 0.0, "", "")
+}

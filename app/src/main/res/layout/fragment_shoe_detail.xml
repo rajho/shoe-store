@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.udacity.shoestore.MainViewModel" />
+        <import type="com.udacity.shoestore.shoedetail.Converter"/>
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,6 +45,7 @@
                     android:layout_marginEnd="16dp"
                     android:importantForAutofill="no"
                     android:inputType="textCapSentences"
+                    android:text="@={mainViewModel.shoe.name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/shoe_name_label" />
@@ -58,6 +66,7 @@
                     android:layout_width="0dp"
                     android:importantForAutofill="no"
                     android:inputType="textCapSentences"
+                    android:text="@={mainViewModel.shoe.company}"
                     app:layout_constraintEnd_toEndOf="@+id/shoe_name_text"
                     app:layout_constraintStart_toStartOf="@+id/shoe_name_text"
                     app:layout_constraintTop_toBottomOf="@+id/shoe_company_label" />
@@ -77,7 +86,8 @@
                     style="@style/EditTextInForm"
                     android:layout_width="0dp"
                     android:importantForAutofill="no"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
+                    android:text="@={Converter.doubleToString(mainViewModel.shoe.size)}"
                     app:layout_constraintEnd_toEndOf="@+id/shoe_company_text"
                     app:layout_constraintStart_toStartOf="@+id/shoe_company_text"
                     app:layout_constraintTop_toBottomOf="@+id/shoe_size_label" />
@@ -100,6 +110,7 @@
                     android:inputType="textCapSentences"
                     android:maxLines="3"
                     android:minLines="3"
+                    android:text="@={mainViewModel.shoe.description}"
                     app:layout_constraintEnd_toEndOf="@+id/shoe_size_text"
                     app:layout_constraintStart_toStartOf="@+id/shoe_size_text"
                     app:layout_constraintTop_toBottomOf="@+id/shoe_description_label" />

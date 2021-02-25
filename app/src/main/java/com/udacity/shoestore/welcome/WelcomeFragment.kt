@@ -14,8 +14,6 @@ import com.udacity.shoestore.databinding.WelcomeFragmentBinding
 
 class WelcomeFragment : Fragment() {
 
-    private lateinit var viewModel: WelcomeViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,12 +25,6 @@ class WelcomeFragment : Fragment() {
 
         binding.instructionsButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_instructionsFragment))
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(WelcomeViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

@@ -33,7 +33,7 @@ class ShoeDetailFragment : Fragment() {
 
         navController = findNavController()
         binding.cancelButton.setOnClickListener {
-            navController.navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoesListFragment())
+            navController.navigateUp()
         }
         binding.saveButton.setOnClickListener {
             saveShoe()
@@ -46,7 +46,7 @@ class ShoeDetailFragment : Fragment() {
     private fun saveShoe() {
         binding.shoe?.let {
             mainViewModel.saveShoe(it)
-            navController.navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoesListFragment())
+            navController.navigateUp()
         }
 
     }

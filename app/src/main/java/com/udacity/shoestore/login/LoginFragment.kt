@@ -17,8 +17,6 @@ class LoginFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by activityViewModels()
 
-    private lateinit var viewModel: LoginViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,12 +49,6 @@ class LoginFragment : Fragment() {
         binding.signUpButton.setOnClickListener(onClickListener)
 
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
